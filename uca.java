@@ -31,21 +31,39 @@ public class uca {
         // System.out.println(max);
 
         //day 3.Stock Span Problem
-        int arr[]={100,80,40,60,70,50,90,110};
-        Stack<Integer> s=new Stack<>();
-        int span[]=new int[arr.length];
-        for(int i=0;i<arr.length;i++){
-            while(!s.isEmpty() && arr[s.peek()]<arr[i]){
-                s.pop();
+        // int arr[]={100,80,40,60,70,50,90,110};
+        // Stack<Integer> s=new Stack<>();
+        // int span[]=new int[arr.length];
+        // for(int i=0;i<arr.length;i++){
+        //     while(!s.isEmpty() && arr[s.peek()]<arr[i]){
+        //         s.pop();
+        //     }
+        //     if(s.isEmpty()){
+        //         span[i]=i+1;
+        //     }else{
+        //         span[i]=i-s.peek();
+        //     }
+        //     s.push(i);
+        // }
+        // printArr(span);
+
+        //day 21. Reverse Vowels of a String
+        String str = "leetcode";
+        StringBuilder sb = new StringBuilder();
+        Stack<Character> s =new Stack<>();
+        for(int i=0; i<str.length(); i++){
+            if(str.charAt(i)=='a' || str.charAt(i)=='e' || str.charAt(i)=='i' || str.charAt(i)=='o' || str.charAt(i)=='u'){
+                s.push(str.charAt(i));
             }
-            if(s.isEmpty()){
-                span[i]=i+1;
-            }else{
-                span[i]=i-s.peek();
-            }
-            s.push(i);
         }
-        printArr(span);
+        for(int i=0; i<str.length(); i++){
+            if(str.charAt(i)=='a' || str.charAt(i)=='e' || str.charAt(i)=='i' || str.charAt(i)=='o' || str.charAt(i)=='u'){
+                sb.append(s.pop());
+            }else{
+                sb.append(str.charAt(i));
+            }
+        }
+        System.out.println(sb);
 
     }
 }
